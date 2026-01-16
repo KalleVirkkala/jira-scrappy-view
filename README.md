@@ -1,6 +1,6 @@
 # jira-scrappy-view
 
-Export JIRA tickets to SQLite databases and browse them locally with a web interface.
+Export JIRA tickets to SQLite databases and browse them locally with a web interface.Perfect for storing your JIRA data somewhere safe
 
 ## Features
 
@@ -10,6 +10,7 @@ Export JIRA tickets to SQLite databases and browse them locally with a web inter
 - **Multi-project**: Scrape and view multiple projects
 - **LLM-ready**: SQLite databases can be used with RAG/LLM applications
 - **Docker support**: Run the viewer in a container
+
 
 ## Quick Start
 
