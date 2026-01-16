@@ -30,12 +30,12 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
-
-# JIRA Configuration - set via environment variables or .env file
-JIRA_URL = os.environ.get("JIRA_URL", "")
-JIRA_EMAIL = os.environ.get("JIRA_EMAIL", "")
-JIRA_API_TOKEN = os.environ.get("JIRA_API_TOKEN", "")
-
+# Load .env file FIRST (before reading environment variables)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv is optional
 
 try:
     import requests
@@ -43,12 +43,10 @@ except ImportError:
     print("Error: requests library not found. Install with: pip install requests")
     sys.exit(1)
 
-try:
-    from dotenv import load_dotenv
-
-    load_dotenv()
-except ImportError:
-    pass  # dotenv is optional
+# JIRA Configuration - set via environment variables or .env file
+JIRA_URL = os.environ.get("JIRA_URL", "")
+JIRA_EMAIL = os.environ.get("JIRA_EMAIL", "")
+JIRA_API_TOKEN = os.environ.get("JIRA_API_TOKEN", "")
 
 
 @dataclass
