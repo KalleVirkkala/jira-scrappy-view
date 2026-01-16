@@ -1,0 +1,11 @@
+services:
+  jira-viewer:
+    build: .
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./TS.db/data/TS_JIRA.db:/data/TS.db:ro
+      - ./TS.db/data/PC_JIRA.db:/data/PC.db:ro
+    environment:
+      - JIRA_DB_PATH=/data/TS.db:/data/PC.db
+    restart: unless-stopped
